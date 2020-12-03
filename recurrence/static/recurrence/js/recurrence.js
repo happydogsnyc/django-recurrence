@@ -576,7 +576,7 @@ recurrence.serialize = function(rule_or_recurrence) {
             pad(dt.getUTCDate(), 2) + 'T' +
             pad(dt.getUTCHours(), 2) +
             pad(dt.getUTCMinutes(), 2) +
-            pad(dt.getUTCSeconds(), 2) + 'Z';
+            pad(dt.getUTCSeconds(), 2);
     };
 
     var serialize_rule = function(rule) {
@@ -659,7 +659,9 @@ recurrence.serialize = function(rule_or_recurrence) {
             items.push(['EXDATE', serialize_dt(item)]);
         });
 
-    return map_to_property(items).join('\n');
+    var result = map_to_property(items).join('\n');
+    console.log(result);
+    return result;
 };
 
 
